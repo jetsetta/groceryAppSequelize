@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h2>Add a New Store</h2>
+    <form action="/shoppinglists" method="post">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="street" placeholder="Street">
+      <input type="text" name="city" placeholder="City">
+      <input type="text" name="state" placeholder="State">
+      <input type="submit" name="" placeholder="Submit">
+    </form>
+
+    <hr>
+
+    <h2>Your Shopping Lists</h2>
+    <div>
+      <ul style='list-style: none'>
+        {{#storeList}}
+          <div>
+            <b><li>{{name}}</li></b>
+            <li>{{street}}, {{city}}, {{state}}</li>
+            <form action='/deleteShoppingList' method='post'>
+              <input type="hidden" name="delete" value={{id}}>
+              <input type="submit" value="Delete">
+            </form>
+            <p></p>
+          </div>
+        {{/storeList}}
+      </ul>
+    </div>
+  </body>
+</html>
